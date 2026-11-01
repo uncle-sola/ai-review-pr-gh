@@ -13,7 +13,9 @@
 
 ## Modules
 
-No modules.
+| Name | Source | Version |
+|------|--------|---------|
+| <a name="module_naming"></a> [naming](#module\_naming) | git::https://github.com/uncle-sola/shared-tf.git | v1.0.4 |
 
 ## Resources
 
@@ -39,6 +41,7 @@ No modules.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
+| <a name="input_environment"></a> [environment](#input\_environment) | Deployment environment (from the GitHub environment name) | `string` | n/a | yes |
 | <a name="input_location"></a> [location](#input\_location) | The location where resources will be created | `string` | `"UK South"` | no |
 
 ## Outputs
