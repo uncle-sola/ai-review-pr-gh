@@ -15,7 +15,7 @@
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_naming"></a> [naming](#module\_naming) | git::https://github.com/uncle-sola/shared-tf.git | v1.0.4 |
+| <a name="module_naming"></a> [naming](#module\_naming) | git::https://github.com/uncle-sola/shared-tf.git | 323812276232f634ce1e5ba6a9bc03eea4f8de8d |
 
 ## Resources
 
