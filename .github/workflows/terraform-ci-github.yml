@@ -21,6 +21,6 @@ jobs:
       pull-requests: write
     uses: uncle-sola/shared-workflows/.github/workflows/terraform-ci-github.yml@main
     with:
-      environment: ${{ github.event.pull_request.base.ref == 'main' && 'main' || 'dev' }}
+      environment: dev
     secrets:
       CLAUDE_API_KEY: ${{ secrets.CLAUDE_API_KEY }}
