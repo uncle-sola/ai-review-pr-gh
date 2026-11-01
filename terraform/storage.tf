@@ -1,7 +1,7 @@
 resource "azurerm_storage_account" "blob" {
   #checkov:skip=CKV_AZURE_33:Queue service is unused. Classic queue logging is a data-plane call that cannot reach this account (public access and shared keys disabled); queue access is logged via azurerm_monitor_diagnostic_setting.queue instead.
   #checkov:skip=CKV2_AZURE_1:Demo environment holding no sensitive data. Microsoft-managed keys (AES-256) are accepted; a CMK needs a Premium Key Vault and HSM key whose cost and network-access requirements aren't justified here.
-  name                     = "aireviewghblobdemo0109x"
+  name                     = "${module.naming.convention["storage_account"]}0109x" # Suffix keeps the globally unique name from clashing
   resource_group_name      = azurerm_resource_group.rg.name
   location                 = azurerm_resource_group.rg.location
   account_tier             = "Standard"
@@ -39,13 +39,13 @@ resource "azurerm_storage_container" "blob" {
 }
 
 resource "azurerm_private_endpoint" "blob" {
-  name                = "pe-aireviewblobdemo-blob"
+  name                = "${module.naming.convention["private_endpoint"]}-blob"
   location            = azurerm_resource_group.rg.location
   resource_group_name = azurerm_resource_group.rg.name
   subnet_id           = azurerm_subnet.subnet.id
 
   private_service_connection {
-    name                           = "psc-aireviewblobdemo-blob"
+    name                           = "${module.naming.convention["private_endpoint"]}-blob-psc"
     private_connection_resource_id = azurerm_storage_account.blob.id
     subresource_names              = ["blob"]
     is_manual_connection           = false
@@ -58,7 +58,7 @@ resource "azurerm_private_endpoint" "blob" {
 }
 
 resource "azurerm_monitor_diagnostic_setting" "blob" {
-  name                       = "diag-blob"
+  name                       = "${module.naming.convention["diagnostics"]}-blob"
   target_resource_id         = "${azurerm_storage_account.blob.id}/blobServices/default"
   log_analytics_workspace_id = azurerm_log_analytics_workspace.logs.id
 
