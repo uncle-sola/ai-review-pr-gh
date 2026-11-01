@@ -1,14 +1,4 @@
 terraform {
-
-  cloud {
-
-    organization = "logion"
-
-    workspaces {
-      name = "ai-review-pr-yt"
-    }
-  }
-
   required_providers {
     azurerm = {
       source  = "hashicorp/azurerm"

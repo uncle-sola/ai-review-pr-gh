@@ -1,7 +1,7 @@
 resource "azurerm_storage_account" "blob" {
   #checkov:skip=CKV_AZURE_33:Queue service is unused. Classic queue logging is a data-plane call that cannot reach this account (public access and shared keys disabled); queue access is logged via azurerm_monitor_diagnostic_setting.queue instead.
   #checkov:skip=CKV2_AZURE_1:Demo environment holding no sensitive data. Microsoft-managed keys (AES-256) are accepted; a CMK needs a Premium Key Vault and HSM key whose cost and network-access requirements aren't justified here.
-  name                     = "aireviewblobdemo0109x"
+  name                     = "aireviewghblobdemo0109x"
   resource_group_name      = azurerm_resource_group.rg.name
   location                 = azurerm_resource_group.rg.location
   account_tier             = "Standard"
