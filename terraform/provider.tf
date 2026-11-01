@@ -8,6 +8,13 @@ terraform {
       name = "ai-review-pr-yt"
     }
   }
+
+  required_providers {
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = "~> 4.0"
+    }
+  }
 }
 
 provider "azurerm" {

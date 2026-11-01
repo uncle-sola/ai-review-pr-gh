@@ -39,7 +39,7 @@ No modules.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_location"></a> [location](#input\_location) | n/a | `string` | `"UK South"` | no |
+| <a name="input_location"></a> [location](#input\_location) | The location where resources will be created | `string` | `"UK South"` | no |
 
 ## Outputs
 
