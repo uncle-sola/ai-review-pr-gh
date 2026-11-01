@@ -22,5 +22,4 @@ jobs:
     uses: uncle-sola/shared-workflows/.github/workflows/terraform-ci-github.yml@main
     with:
       environment: dev
-    secrets:
-      CLAUDE_API_KEY: ${{ secrets.CLAUDE_API_KEY }}
+    secrets: inherit  # Needed so the dev environment's ARM_* secrets reach the shared workflow
