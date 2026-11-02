@@ -11,7 +11,7 @@ resource "azurerm_subnet_network_security_group_association" "subnet_nsg" {
 
 resource "azurerm_network_security_rule" "allow_ssh" {
   name                        = "Allow-SSH"
-  priority                    = 100
+  priority                    = 101
   direction                   = "Inbound"
   access                      = "Allow"
   protocol                    = "Tcp"
