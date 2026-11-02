@@ -12,7 +12,7 @@ jobs:
     permissions:
       contents: write
       pull-requests: write
-    uses: uncle-sola/shared-workflows/.github/workflows/terraform-ci-github.yml@main
+    uses: uncle-sola/shared-workflows/.github/workflows/terraform-pr-github.yml@main
     with:
       environment: dev
       plan-environment: dev-plan  # Same secrets and STATE_* variables as dev, no required reviewers
