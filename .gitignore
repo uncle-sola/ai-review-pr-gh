@@ -6,3 +6,6 @@
 .env
 crash.log
 .env.ps1
+
+# Saved plan from scripts/tf.sh plan
+tfplan
