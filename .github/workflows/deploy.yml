@@ -1,0 +1,24 @@
+name: Terraform Deploy
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "terraform/**"
+      - ".github/workflows/deploy.yml"
+
+  workflow_dispatch:
+
+jobs:
+
+  terraform-deploy:
+    permissions:
+      contents: read
+    uses: uncle-sola/shared-workflows/.github/workflows/terraform-deploy-github.yml@main
+    with:
+      environment: dev
+      state-resource-group: TerraformState-DEV-UKS
+      state-storage-account: tfstatestdevuks
+      state-container: tfstates
+    secrets: inherit  # Needed so the dev environment's ARM_* secrets reach the shared workflow
