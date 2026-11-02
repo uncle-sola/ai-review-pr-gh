@@ -15,4 +15,7 @@ jobs:
     uses: uncle-sola/shared-workflows/.github/workflows/terraform-ci-github.yml@main
     with:
       environment: dev
+      state-resource-group: TerraformState-DEV-UKS
+      state-storage-account: tfstatestdevuks
+      state-container: tfstates
     secrets: inherit  # Needed so the dev environment's ARM_* secrets reach the shared workflow
