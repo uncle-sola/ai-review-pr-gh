@@ -1,27 +1,24 @@
-name: Terraform CI/CD
+name: Terraform Deploy
 
 on:
-  pull_request:
-    paths:
-      - "terraform/**"
-      - ".github/workflows/**"
-
   push:
     branches:
       - main
     paths:
       - "terraform/**"
-      - ".github/workflows/**"
+      - ".github/workflows/deploy.yml"
+
+  workflow_dispatch:
 
 jobs:
 
-  terraform-ci:
+  terraform-deploy:
     permissions:
-      contents: write
-      pull-requests: write
-    uses: uncle-sola/shared-workflows/.github/workflows/terraform-ci-github.yml@main
+      contents: read
+    uses: uncle-sola/shared-workflows/.github/workflows/terraform-deploy-github.yml@main
     with:
       environment: dev
+      plan-environment: dev-plan  # Same secrets as dev, no required reviewers
       state-resource-group: TerraformState-DEV-UKS
       state-storage-account: tfstatestdevuks
       state-container: tfstates
