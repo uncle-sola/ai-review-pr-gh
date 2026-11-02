@@ -6,13 +6,6 @@ on:
       - "terraform/**"
       - ".github/workflows/**"
 
-  push:
-    branches:
-      - main
-    paths:
-      - "terraform/**"
-      - ".github/workflows/**"
-
 jobs:
 
   terraform-ci:
