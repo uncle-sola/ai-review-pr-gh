@@ -15,6 +15,7 @@ jobs:
     uses: uncle-sola/shared-workflows/.github/workflows/terraform-ci-github.yml@main
     with:
       environment: dev
+      plan-environment: dev-plan  # Same secrets as dev, no required reviewers
       state-resource-group: TerraformState-DEV-UKS
       state-storage-account: tfstatestdevuks
       state-container: tfstates
